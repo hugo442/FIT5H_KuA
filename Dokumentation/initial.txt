@@ -1,3 +1,13 @@
+Funktion:
+- git ist eine Versionsverwaltung, ermöglicht also auf frühere Versionsstände einer Datei zuzugreifen
+- git wird in der Softwareentwicklung immer verwendet
+- git ermöglicht komfortabel das Arbeiten mehrerer Personen an einem Projekt
+
+Kostenfreie Git-Server:
+	github.com
+		- eigene Projekte können hier abgelegt werden
+		- Projekte anderer Personen stehen hier zur Ansicht zur Verfügung
+
 Erstellen eines lokalen Repositorys:
 1. Ordner erstellen
 	mkdir KuA
@@ -13,3 +23,9 @@ Erstellen eines lokalen Repositorys:
 	git remote add origin https://github.com/hugo442/FIT5H_KuA.git
 7. Die lokalen Aenderungen zum Remote Repos hochladen
 	git push -u origin master
+
+Aktualisieren eines Projektes
+1. mit cd in das Basisverzeichnis des Projektes gehen
+2. git add . -A
+3. git commit -am "Kommentar"
+4. git push origin master
