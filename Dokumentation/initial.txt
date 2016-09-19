@@ -13,6 +13,7 @@ Erstellen eines lokalen Repositorys:
 	mkdir KuA
 2. Ordner mit git initialisieren
 	git init
+	#git init KuA erspart den mkdir-Befehl
 3. Datei erzeugen zum testen
 	touch test.txt
 4. Datei zum Repository hinzufuegen
@@ -29,3 +30,8 @@ Aktualisieren eines Projektes
 2. git add . -A
 3. git commit -am "Kommentar"
 4. git push origin master
+
+Konfigurieren:
+A. LOGIN und PW
+	git config --global credential.helper Cache
+	git config credential.helper "Cache --timeout=10000000000"
