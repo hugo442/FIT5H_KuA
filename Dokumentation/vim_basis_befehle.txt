@@ -1,0 +1,42 @@
+ls = auslesen der Ordnerinhalte 
+clear = Konsolle leren 
+cd = Verzeichnis wechseln 
+cp = Verzeichnise kopieren und verschieben 
+
+
+************* Befehle zum Moduswechsel ****************
+i = Einfügen vor der Cursorposition
+a = Einfügen nach der aktuellen Cursorposition
+I = Einfügen am Anfang der aktuelle Zeile 
+A = Einfügen am Ende der Zeile 
+
+*********Befehle zum löschen /ersetzten von Text*********
+C = Ersetzten die aktuelle Zeile durch neu eingegebenen Text 
+c = in Verbindung mit Bewegungsoperator ersetzt Text 
+ce = löscht das nächste Wort und fügt ein
+
+x = löscht das Zeichen der Cursorposition
+dd = löscht eine Zeile und kopiert sie in den Cache 
+
+p = fügt Text aus Zwischenablage nach der aktuellen Zeile wieder ein
+
+v = Makiermodus starten und mit Pfeiltasten vornehmen 
+y = kopiert den makierten Bereich 
+p = fügt Text aus Zwischenablage nach der aktuelleb Zeile wieder ein
+
+************* Befehl im Kommandomodus *****************
+ESC = Wechselt vom Einfüge- in den Befehlsmodus 
+
+/ = die eingegebenen Źeichen werden im Text gesucht 
+n = sucht weiter 
+N = sucht rückwärts 
+
+w = springt ein Wort weiter 
+gg = geht zum Dateianfang 
+GG = geht zum Dateiende 
+
+:w = speichert die Datei 
+:w = <dateiname> speichert den Text in neuer Datei 
+:q = beendet Vim, falls keine Änderungen vorgenommen wurden
+:wq = Speichert und beendet 
+:q! = verwirft Änderungen und beendet Vim

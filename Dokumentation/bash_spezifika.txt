@@ -1,0 +1,28 @@
+pwd			print worling dir
+whoami		als wer bin ich angemeldet
+
+Schiebeoperator:
+
+	>		
+		das Ergebnis eines Befehls (links von >) wird in eine angegebene Ausgabe geschoben
+
+	>>		
+		dito, aber Ergebnis wird angehängt
+
+	|		
+		pipe: Das Ergebnis wird an das nächste Programm zur Weiterverarbeitung übergeben
+				ls -l /etc | less
+					die Anzeige der Dateien/Ordner vom Verzeichnis etc wird an das Programm less übergeben, das eine seitenweise Anzeige von Text beherrscht
+
+	cat > <dateiname>
+		Eingabe von beliebigem Text
+		strg + d beendet die Eingabe und speichert diese in die Datei <dateiname>
+
+	Links
+		Hardlink
+			ln <dateiname> <dateiname-lnk>
+				erzeugt eine neue Referenz auf eine Datei in der File-Tabelle der Festplatte
+		Softlink
+			ln -s <verzeichnisname> <verzeichnisname-neu>
+				Da Hardlinks nur für Dateien möglich sind, gibt es den Softlink für Verzeichnisse.
+				Es wird eine neue Datei erstellt, deren Inhalt der Verweis auf das Verzeichnis ist.
