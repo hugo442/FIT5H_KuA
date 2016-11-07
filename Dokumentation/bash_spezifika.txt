@@ -1,18 +1,21 @@
 pwd			print worling dir
 whoami		als wer bin ich angemeldet
 
-Schiebeoperator:
+Standarddeskriptoren
+	IN : Tastatur
+	OUT : Bildschirm
+	ERR : Fehler
 
-	>		
-		das Ergebnis eines Befehls (links von >) wird in eine angegebene Ausgabe geschoben
-
-	>>		
+Bash-Operatoren:
+	> 		das Ergebnis eines Befehls (links von >) wird in eine angegebene Ausgabe geschoben 
+	>>
 		dito, aber Ergebnis wird angehängt
-
-	|		
+	ls /etc >> datei_namen.dat
+		Der BashInterpreter schaut nach, ob es eine Datei <datei_namen.dat> gibt. Falls ja, wird das Ergebnis des Befehls <ls> angehängt; falls nein, wird eine Datei mit dem Namen <datei_namen.dat> erzeugt und die Ausgabe des Befehls <ls> reingeschrieben
+	|
 		pipe: Das Ergebnis wird an das nächste Programm zur Weiterverarbeitung übergeben
-				ls -l /etc | less
-					die Anzeige der Dateien/Ordner vom Verzeichnis etc wird an das Programm less übergeben, das eine seitenweise Anzeige von Text beherrscht
+		ls -l /etc | less
+			die Anzeige der Dateien/Ordner vom Verzeichnis etc wird an das Programm less übergeben, das eine seitenweise Anzeige von Text beherrscht
 
 	cat > <dateiname>
 		Eingabe von beliebigem Text
@@ -21,8 +24,23 @@ Schiebeoperator:
 	Links
 		Hardlink
 			ln <dateiname> <dateiname-lnk>
-				erzeugt eine neue Referenz auf eine Datei in der File-Tabelle der Festplatte
+				erzeugt eine neue Referenz auf eine Datei in der File-Tabelle der Festplatte. Jede Datei hat mindestens einen Hardlink.
 		Softlink
 			ln -s <verzeichnisname> <verzeichnisname-neu>
 				Da Hardlinks nur für Dateien möglich sind, gibt es den Softlink für Verzeichnisse.
 				Es wird eine neue Datei erstellt, deren Inhalt der Verweis auf das Verzeichnis ist.
+
+Variablen
+	Definition:
+		Variablenname aus Buchstaben, keine Zahlen als 1. Buchstaben, keine Sonderzeichen, dann Zuweisungsoperator ohne Leerzeichen, dann Wert
+			var="Zeichenkette"
+	Verwendung
+		$ + Variablenname
+			echo $var
+
+Kommandosubstitution mit Backticks
+	var ='ls'
+		speichert in der Variable avr die Ausgabe des Befehls
+
+	echo $var
+		gibt das Ergebnis des Befehls aus
