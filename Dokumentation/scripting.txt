@@ -1,0 +1,85 @@
+Voraussetzungen
+	SheBang-Zeile:
+		Die erste Zeile einthält den Pfad zum interpretierenden Programm
+		#!/bin/bash
+
+	Berechtigungen:
+		Damit eine Datei als Programm ausgeführt werden kann, muss das Execute_Bit gesetzt sein, d.h. in den Berechtigungen wird ein x angezeigt.
+		chmod u+x test.sh
+
+	Aufruf:
+		Es ist eine absolute Pfadangabe notwendig:
+		./test.sh
+			Aufruf aus dem aktuellen Ordner
+
+Kontext Variablen
+	Definition:
+		trinken='Whisky und Zigarre'
+		Mehr als ein Wort muss in ANfürhungszeichen
+		Zwischen Zuweisung und Variablenname kein Leerzeichen
+
+	Ausgabe:
+		echo $trinken
+		Definierte Variablen enthalten zu Beginn ein $ - Zeichen. Das
+		$-Zeichen bedeutet für den Interpreter generell eine Variable
+
+Variablen - intern
+	$0 : Der Name der aufgerufenen Datei
+	$1 : Der Name des 1. Parameters
+	$# : Anzahl der Skript-Kommandos
+	$? : Exit-Status des letzten Befehls; wurde der letzte Befehl erfolgreich ausgeführt.
+
+Kommandosubstitution
+	echo 'date'
+	echo $(date)
+	Der Shell-Befehl date wird ausgeführt und anschließend an das Programm echo übergeben
+
+Kommandos in Variablen
+	remove='rm test.txt'
+	$remove
+
+String-Konkatenierung
+	string_1=Heia
+	string_2=Popeia
+	string="${string_1} ${string_2} was raschelt im Stroh?"
+	echo "$string_1 $string_2 aber im Heu"
+	echo $string
+
+IF Anweisung
+	#!/bin/bash
+
+	read -p "Ihre Eingabe: " var_name
+
+	echo "Die Eingabe lautet: $var_name"
+
+	if [[ $var_name = "q" ]]
+	then
+		echo "Ist ein prima  q"
+	elif [[ $var_name = "m" ]]
+	then
+		echo "Jo, ein m"
+	else
+		echo "Irgendwas anderes"
+	fi
+
+Schleifen:
+	while [[ $eingabe -ne 1 ]]
+	do
+		read -p "Mach Eingabe du: " eingabe
+		echo $eingabe
+	done
+
+Operatoren
+	[[$var]]				true falls in $var etwas steht außer false oder 0
+	[[wert1 -eq wert2]]		gibt true wenn wert1 gleich wert2 ist
+	[[wert1 -ne wert2]]		gibt true wenn wert1 ungleich wert2 ist
+	[[wert1 -gt wert2]]		gibt true wenn wert1 größer wert2 ist
+	[[wert1 -lt wert2]]		gibt true wenn wert1 kleiner wert2 ist
+
+	[[-e $dateiname]]		gibt true wenn Datei vorhanden ist
+	[[-d $verzeichnis]]		gibt true wenn Verzeichnis vorhanden ist
+
+Aufgabe:
+	Erstellen sie ein Skript, das einen Parameter entgegennimmt und checkt ob es eine Datei gibt, die so heißt wie der übergebende Parameter.
+	Aufruf: ./test.sh test.txt
+	Erweiterung: Die Eingabeaufforderung soll solange gezeigt werden, bis der Benutzer ein q eingibt, oder einen vorhandenen Dateinamen.
