@@ -63,21 +63,38 @@ IF Anweisung
 	fi
 
 Schleifen:
+	Wir ausgeführt solange die Bedingung True ist. (Bei False abbruch)
 	while [[ $eingabe -ne 1 ]]
 	do
 		read -p "Mach Eingabe du: " eingabe
 		echo $eingabe
 	done
 
-Operatoren
-	[[$var]]				true falls in $var etwas steht außer false oder 0
-	[[wert1 -eq wert2]]		gibt true wenn wert1 gleich wert2 ist
-	[[wert1 -ne wert2]]		gibt true wenn wert1 ungleich wert2 ist
-	[[wert1 -gt wert2]]		gibt true wenn wert1 größer wert2 ist
-	[[wert1 -lt wert2]]		gibt true wenn wert1 kleiner wert2 ist
+	Wir ausgeführt bis die Bedingung True ist (Bei True abbruch)
+	until [[ $eingabe -eq 1 ]]
+	do
+		read -p "Eingabe: " eingabe
+		echo $eingabe
+	done
 
-	[[-e $dateiname]]		gibt true wenn Datei vorhanden ist
-	[[-d $verzeichnis]]		gibt true wenn Verzeichnis vorhanden ist
+
+Operatoren
+	[[ $var ]]				true falls in $var etwas steht außer false oder 0
+	[[ !$var ]]				true falls $var ist 0, false, oder leer
+	
+	Strings
+	[[ wert1 = 'string' ]]	gibt true wenn wert1 gleich 'string' ist
+	[[ wert1 != 'string' ]]	gibt true wenn wert1 ungleich 'string' ist
+	
+	Arithmetrische Werte
+	[[ wert1 -eq wert2 ]]		gibt true wenn wert1 gleich wert2 ist
+	[[ wert1 -ne wert2 ]]		gibt true wenn wert1 ungleich wert2 ist
+	[[ wert1 -gt wert2 ]]		gibt true wenn wert1 größer wert2 ist
+	[[ wert1 -lt wert2 ]]		gibt true wenn wert1 kleiner wert2 ist
+	
+	Systemoperationen
+	[[ -e $dateiname ]]		gibt true wenn Datei vorhanden ist
+	[[ -d $verzeichnis ]]		gibt true wenn Verzeichnis vorhanden ist
 
 Aufgabe:
 	Erstellen sie ein Skript, das einen Parameter entgegennimmt und checkt ob es eine Datei gibt, die so heißt wie der übergebende Parameter.

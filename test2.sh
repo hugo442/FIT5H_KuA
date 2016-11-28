@@ -6,7 +6,10 @@ then
 	echo "Die Eingabe lautet: $1"
 	abfrage=$1
 else
-	while [[ abfrage -ne q ]]; do
+	read -p "Ihre Eingabe: " abfrage
+	#while [[ $abfrage != 'q' ]] && [[ ! -e $abfrage ]]
+	until [[ $abfrage = 'q' ]] || [[ -e $abfrage ]] 
+	do
 		read -p "Ihre Eingabe: " abfrage
 		echo "Die Eingabe lautet: $abfrage"	
 	done
