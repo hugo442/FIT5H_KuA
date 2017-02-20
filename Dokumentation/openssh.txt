@@ -1,0 +1,42 @@
+Installation:
+	sudo apt-get install openssh-server
+	sudo apt-get install sshd		#falls nur der Client installiert werden soll
+
+Starten:
+	sudo ssh restart | reload | stop
+
+Verbinden:
+	Server - IP: 172.16.161.211
+	Server - User: theo
+	vom Client
+		ssh theo@172.16.161.211
+
+	SSH ist ein Protokoll, das eine verschlüsselte Verbindung herstellt. Zu diesem Zweck wird beim 1. Verbindungsaufbau der Serverschlüssel in der Datei .ssh/known_host auf dem Client gespeichert. Bei jedem Verbindungsaufbau zwischen Server und Client werden die Schlüssel im Hintergrund getauscht und kontrolliert.
+
+Log
+	/var/log/auth.log
+
+Erhöhen der Sicherheit:
+	1. Port auf dem der Server lauscht, wird von 22 auf irgendwas größer als 1000 geändert
+	2. Zugriff von root generell unterbinden
+	3. Zugriff nur von bestimmten Rechnern zulassen
+
+Login mit Key von Rechner
+	Erzeugen eines Schlüssels auf dem Client-Rechner
+		ssh-keygen -t rsa -C 'theo@gmx.de'
+	Kopieren des Public-Keys zum Server
+		ssh-copy-id -i ~/.ssh/id_rsa.pub andrei@192.168.43.148
+
+Anpassen der Konfigurationsdatei von SSH auf dem Server
+	vim /etc/ssh/sshd_config
+		port 3333
+		PermitRootLogin no 				#root kann von außen generell nicht zugreifen
+		PasswordAuthentication no 		#erlaubt nur noch Rechnern den Login
+
+Kopieren von Dateien
+	scp test-copy-server 192.168.43.148:/home/andrei/
+		vom lokalen Client wird eine Datei zum Server kopiert
+
+Windows auf Server
+	putty
+	winscp
